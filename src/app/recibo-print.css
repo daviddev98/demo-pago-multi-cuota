@@ -1,0 +1,59 @@
+/* Página de impresión — texto plano, formato vertical */
+
+.recibo-print-page {
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  background: #fff;
+  color: #000;
+}
+
+.recibo-print-toolbar {
+  max-width: 56ch;
+  margin: 0 auto 1rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.recibo-documento {
+  max-width: 56ch;
+  margin: 0 auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11pt;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 12mm;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .recibo-print-page {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .recibo-documento {
+    max-width: 100%;
+    font-size: 10pt;
+  }
+}
